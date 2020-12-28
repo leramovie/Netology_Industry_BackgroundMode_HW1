@@ -24,7 +24,7 @@ final class ProfileHeaderView: UIView {
         didSet {
             fullNameLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
             fullNameLabel.textColor = .white
-            fullNameLabel.text = "Lera's cat - Cox"
+            fullNameLabel.text = "Lera's cat"
         }
     }
     

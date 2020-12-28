@@ -73,10 +73,10 @@ class ProfileTableHeaderView: UIView {
     }()
     
     let closeAvatar: UIButton = {
-        let button = UIButton(frame: CGRect(x: UIScreen.main.bounds.maxX - 30, y: 0, width: 15, height: 15))
+        let button = UIButton(frame: CGRect(x: UIScreen.main.bounds.maxX - 30, y: 10, width: 15, height: 15))
         button.tintColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1).withAlphaComponent(0.1)
-        button.sizeToFit()
-        button.setImage(UIImage(contentsOfFile: "closeIcon"), for: button.state)
+        //button.sizeToFit()
+        button.setImage(UIImage(named: "closeIcon"), for: button.state)
         button.addTarget(self, action: #selector(closeAvatarPopup), for: .touchUpInside)
         button.tintColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
 
@@ -152,6 +152,8 @@ class ProfileTableHeaderView: UIView {
     }
     
     private func checkAvatarWasTappedAlready() -> Bool  {
+        
+        //Исправление для проверки открывалась ли уже аватарка, и если открывалась она скорей всего скрыта, после нажатия на крестик
 
         if self.backgroundAvatar.isHidden == true {
             print("backgroundAvatar already added as subview and Close button was tapped")
@@ -165,7 +167,8 @@ class ProfileTableHeaderView: UIView {
     
     @objc func tappedAvatar() {
         
-       let avatarWasTappedInSession = checkAvatarWasTappedAlready()
+        //Переменная для проверки открывали ли уже аватарку
+        let avatarWasTappedInSession = checkAvatarWasTappedAlready()
     
         if avatarWasTappedInSession == false {
             UIView.animateKeyframes(withDuration: 0.5, delay: 0, options: []) {
@@ -200,7 +203,8 @@ class ProfileTableHeaderView: UIView {
             }
         } else {
             
-            UIView.animate(withDuration: 0.5,
+            //Правда плавная анимация теперь не работает
+            UIView.animate(withDuration: 0.3,
                            animations: { [weak self] in
                             self?.backgroundAvatar.alpha = 1.0
                             self?.closeAvatar.alpha = 1.0
