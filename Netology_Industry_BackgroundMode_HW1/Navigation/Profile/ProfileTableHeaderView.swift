@@ -8,9 +8,10 @@
 
 import UIKit
 import SnapKit
+import iOSIntPackage
 
 
-class ProfileTableHeaderView: UIView {
+final class ProfileTableHeaderView: UIView {
     
    var expandedPhoto: UIImageView = UIImageView()
             
@@ -35,7 +36,7 @@ class ProfileTableHeaderView: UIView {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         label.textColor = .black
-        label.text = "Lera's cat - Cox"
+        label.text = "White Cat "
         
         return label
     }()
@@ -87,9 +88,9 @@ class ProfileTableHeaderView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        setupLayout()
 
+        setupLayout()
+        configureImageView()
     }
     
     required init?(coder: NSCoder) {
@@ -169,6 +170,18 @@ class ProfileTableHeaderView: UIView {
        
     }
     
+    //MARK: iOSIntPackage finctions
+    private func configureImageView() {
+        let processor = ImageProcessor()
+        processor.processImage(
+            sourceImage: #imageLiteral(resourceName: "CoxCat"),
+            filter: .monochrome(color: .black, intensity: 2.0)) { image in
+            avatar.image = image
+        }
+    }
+    
+    
+    //MARK: Obj-c functions
     @objc func tappedAvatar() {
         
         //Переменная для проверки открывали ли уже аватарку
