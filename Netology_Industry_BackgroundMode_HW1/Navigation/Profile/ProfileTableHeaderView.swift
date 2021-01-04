@@ -170,7 +170,7 @@ final class ProfileTableHeaderView: UIView {
        
     }
     
-    //MARK: iOSIntPackage finctions
+    //MARK: iOSIntPackage function
     private func configureImageView() {
         let processor = ImageProcessor()
         processor.processImage(
