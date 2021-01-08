@@ -130,7 +130,9 @@ final class ProfileTableHeaderView: UIView {
     }
     
     @objc func buttonPressed() {
+        
         showStatusText()
+        
     }
     
     @objc func closeAvatarPopup() {

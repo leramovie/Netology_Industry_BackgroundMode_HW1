@@ -8,8 +8,15 @@
 
 import UIKit
 
+protocol LoginViewControllerDelegate: AnyObject {
+    func checkLogin()
+    func checkPassword()
+}
+
 @available(iOS 13.0, *)
 class LoginViewController: UIViewController {
+    
+    weak var delegate: LoginViewControllerDelegate?
     
     private lazy var loginView: LoginView = {
         let loginView = LoginView()

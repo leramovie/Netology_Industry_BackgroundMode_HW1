@@ -26,6 +26,8 @@
 		F9A675A7253B2A9D0038BB08 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A675A6253B2A9D0038BB08 /* LoginViewController.swift */; };
 		F9A675AA253B2AB20038BB08 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A675A9253B2AB20038BB08 /* LoginView.swift */; };
 		F9A8A60E25A3A0FD0061D1A0 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = F9A8A60D25A3A0FD0061D1A0 /* iOSIntPackage */; };
+		F9A8A61725A4B1560061D1A0 /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A8A61625A4B1560061D1A0 /* Checker.swift */; };
+		F9A8A61F25A4B45F0061D1A0 /* AuthorizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A8A61E25A4B45F0061D1A0 /* AuthorizationManager.swift */; };
 		F9CF8C87253F07CE0083278B /* UIImage+Alpha.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CF8C86253F07CE0083278B /* UIImage+Alpha.swift */; };
 		F9F2F933253071B200883B52 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F2F932253071B200883B52 /* ProfileViewController.swift */; };
 		F9FB619E2544A7FF00F27CF1 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FB619D2544A7FF00F27CF1 /* PhotosViewController.swift */; };
@@ -61,6 +63,8 @@
 		F95CC4512594C00C00A4D675 /* Navigation copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Navigation copy-Info.plist"; path = "/Users/vshel/Documents/Netologia/SwiftUI/Final Gesture/NewVersionLera 2/Navigation copy-Info.plist"; sourceTree = "<absolute>"; };
 		F9A675A6253B2A9D0038BB08 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F9A675A9253B2AB20038BB08 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		F9A8A61625A4B1560061D1A0 /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Checker.swift; path = ../../../../../../Checker.swift; sourceTree = "<group>"; };
+		F9A8A61E25A4B45F0061D1A0 /* AuthorizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthorizationManager.swift; path = ../../../../../../AuthorizationManager.swift; sourceTree = "<group>"; };
 		F9CF8C86253F07CE0083278B /* UIImage+Alpha.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Alpha.swift"; sourceTree = "<group>"; };
 		F9F2F932253071B200883B52 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F9FB619D2544A7FF00F27CF1 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +108,7 @@
 		060782B0250CE27700A87020 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				F9A8A61525A4B13C0061D1A0 /* Singleton */,
 				F9537B6C253F8BD0003AD1B0 /* Model */,
 				F9537B63253F1C0A003AD1B0 /* Storage */,
 				F9537B5C253F1B56003AD1B0 /* Helpers */,
@@ -169,6 +174,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		F9A8A61525A4B13C0061D1A0 /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				F9A8A61625A4B1560061D1A0 /* Checker.swift */,
+			);
+			path = Singleton;
+			sourceTree = "<group>";
+		};
 		F9BE465A25403BCD0001BE69 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +201,7 @@
 				F9A675A6253B2A9D0038BB08 /* LoginViewController.swift */,
 				F9A675A9253B2AB20038BB08 /* LoginView.swift */,
 				F9FB619D2544A7FF00F27CF1 /* PhotosViewController.swift */,
+				F9A8A61E25A4B45F0061D1A0 /* AuthorizationManager.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -330,8 +344,10 @@
 				F9FB61A725457BB600F27CF1 /* PhotoStorage.swift in Sources */,
 				060782CA250CEE7200A87020 /* Post.swift in Sources */,
 				F9537B69253F5686003AD1B0 /* PostTableViewCell.swift in Sources */,
+				F9A8A61F25A4B45F0061D1A0 /* AuthorizationManager.swift in Sources */,
 				F9A675AA253B2AB20038BB08 /* LoginView.swift in Sources */,
 				060782C8250CEE5D00A87020 /* PostViewController.swift in Sources */,
+				F9A8A61725A4B1560061D1A0 /* Checker.swift in Sources */,
 				F9537B65253F1C18003AD1B0 /* Storage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
