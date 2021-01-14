@@ -181,14 +181,14 @@ final class FeedViewController: UIViewController {
         NSLayoutConstraint.activate(constraints)
     }
     
-//    //MARK: Prepare method
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        guard segue.identifier == "post" else {
-//            return
-//        }
-//        guard let postViewController = segue.destination as? PostViewController else {
-//            return
-//        }
-//        postViewController.post = post
-//    }
+    //MARK: Prepare method
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "post" else {
+            return
+        }
+        guard let postViewController = segue.destination as? PostViewController else {
+            return
+        }
+        postViewController.post = post
+    }
 }

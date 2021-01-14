@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import SnapKit
+import iOSIntPackage
 
 
-class ProfileTableHeaderView: UIView {
+final class ProfileTableHeaderView: UIView {
     
    var expandedPhoto: UIImageView = UIImageView()
             
@@ -34,7 +36,7 @@ class ProfileTableHeaderView: UIView {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         label.textColor = .black
-        label.text = "Lera's cat - Cox"
+        label.text = "White Cat "
         
         return label
     }()
@@ -86,9 +88,9 @@ class ProfileTableHeaderView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        setupLayout()
 
+        setupLayout()
+        configureImageView()
     }
     
     required init?(coder: NSCoder) {
@@ -98,30 +100,33 @@ class ProfileTableHeaderView: UIView {
     private func setupLayout() {
         
         addSubviews(avatar, userName, showStatusButton, textField)
-
         
-        let constraints = [
-            avatar.topAnchor.constraint(equalTo: topAnchor, constant: 16),
-            avatar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            avatar.widthAnchor.constraint(equalToConstant: 100),
-            avatar.heightAnchor.constraint(equalToConstant: 100),
-            
-            userName.topAnchor.constraint(equalTo: topAnchor, constant: 27),
-            userName.leadingAnchor.constraint(equalTo: avatar.trailingAnchor, constant: 20),
-            userName.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            
-            textField.topAnchor.constraint(equalTo: showStatusButton.topAnchor, constant: -34),
-            textField.leadingAnchor.constraint(equalTo: userName.leadingAnchor),
-            textField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            
-            showStatusButton.topAnchor.constraint(equalTo: avatar.bottomAnchor, constant: 16),
-            showStatusButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            showStatusButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            showStatusButton.heightAnchor.constraint(equalToConstant: 50),
-            showStatusButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
-        ]
+        //MARK: SnapKit constraints
         
-        NSLayoutConstraint.activate(constraints)
+        avatar.snp.makeConstraints { make in
+            make.top.leading.equalToSuperview().offset(16)
+            make.width.height.equalTo(100)
+        }
+        
+        userName.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(27)
+            make.leading.equalTo(avatar.snp_trailingMargin).offset(20)
+            make.trailing.equalToSuperview().offset(-16)
+        }
+        
+        textField.snp.makeConstraints { make in
+            make.top.equalTo(showStatusButton.snp_topMargin).offset(-34)
+            make.leading.equalTo(userName.snp_leadingMargin)
+            make.trailing.equalToSuperview().offset(-16)
+        }
+        
+        showStatusButton.snp.makeConstraints { make in
+            make.height.equalTo(50)
+            make.top.equalTo(avatar.snp_bottomMargin).offset(16)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.bottom.equalToSuperview().offset(-16)
+        }
+        
     }
     
     @objc func buttonPressed() {
@@ -165,6 +170,18 @@ class ProfileTableHeaderView: UIView {
        
     }
     
+    //MARK: iOSIntPackage function
+    private func configureImageView() {
+        let processor = ImageProcessor()
+        processor.processImage(
+            sourceImage: #imageLiteral(resourceName: "CoxCat"),
+            filter: .monochrome(color: .black, intensity: 2.0)) { image in
+            avatar.image = image
+        }
+    }
+    
+    
+    //MARK: Obj-c functions
     @objc func tappedAvatar() {
         
         //Переменная для проверки открывали ли уже аватарку
